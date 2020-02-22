@@ -29,7 +29,7 @@ func main() {
 }
 
 // incCounter increments the package level counter variable.
-func incCounter(id int) {
+func incCounter2(id int) {
 	// Schedule the call to Done to tell main we are done.
 	defer wg.Done()
 
