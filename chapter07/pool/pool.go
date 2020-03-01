@@ -33,15 +33,13 @@ func New(fn func() (io.Closer, error), size uint) (*Pool, error) {
 func (p *Pool) Acquire() (io.Closer, error) {
 	select {
 	case r, ok := <-p.resources:
-		log.Println("Acquire:", "Shared Resource")
-		if !ok {
-			return nil, ClosedError
+		log.Println("acquire: ", "shared resource")
+		if ok {
+			return r, nil
 		}
-		return r, nil
-
-	// Provide a new resource since there are none available.
+		return nil, ClosedError
 	default:
-		log.Println("Acquire:", "New Resource")
+		log.Println("acquire: ", "new resource")
 		return p.factory()
 	}
 }
