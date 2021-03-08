@@ -1,10 +1,11 @@
 package main
 
 import (
-	_ "github.com/RanchoCooper/go-in-action/chapter02/matchers"
-	"github.com/RanchoCooper/go-in-action/chapter02/search"
 	"log"
 	"os"
+
+	_ "github.com/RanchoCooper/go-in-action/chapter02/matchers"
+	"github.com/RanchoCooper/go-in-action/chapter02/search"
 )
 
 func init() {

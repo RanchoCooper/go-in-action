@@ -32,6 +32,6 @@ func Display(results chan *Result) {
 	// the channel blocks until a result is written to the channel.
 	// once the channel is closed the for loop terminates.
 	for result := range results {
-		log.Println("%s:%n%s\n\n", result.Field, result.Content)
+		log.Printf("%s:\n%s\n\n", result.Field, result.Content)
 	}
 }

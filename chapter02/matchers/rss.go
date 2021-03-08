@@ -4,10 +4,11 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"github.com/RanchoCooper/go-in-action/chapter02/search"
 	"log"
 	"net/http"
 	"regexp"
+
+	"github.com/RanchoCooper/go-in-action/chapter02/search"
 )
 
 // item defines the fields associated with the item tag
@@ -64,7 +65,7 @@ func init() {
 	search.Register("rss", matcher)
 }
 
-//Search looks at the document for the specified search term.
+// Search looks at the document for the specified search term.
 func (m rssMatcher) Search(feed *search.Feed, searchTerm string) ([]*search.Result, error) {
 	var results []*search.Result
 
@@ -112,7 +113,7 @@ func (m rssMatcher) Search(feed *search.Feed, searchTerm string) ([]*search.Resu
 // retrieve performs a HTTP GET request for the rss feed and decodes the results.
 func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
 	if feed.URI == "" {
-		return nil, errors.New("No rss feed URI provided")
+		return nil, errors.New("no rss feed URI provided")
 	}
 
 	resp, err := http.Get(feed.URI)
